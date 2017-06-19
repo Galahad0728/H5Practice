@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="left-menu">
+</div>
+<div class="right-content-wrapper">
+
+</div>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    a = [];
+    b = [];
+    var isHover = false;
+    var initLeftMenu = function(e){
+        var leftMenuStr = '';
+        for(var i = 0 ; i<e.length ; i ++){
+            leftMenuStr = leftMenuStr + '<li>' + e[i] + '</li>';
+        }
+        $('.left-menu').append(leftMenuStr);
+    };
+
+    var initRightContent = function(e){
+        var rightContentStr = '';
+        for(var i in e){
+            rightContentStr = rightContentStr + '<div class="right-content">';
+            for(var  j in e[i]){
+                rightContentStr = rightContentStr + '<li>' + e[i][j].item + '</li>';
+            }
+            rightContentStr = rightContentStr + '</div>';
+        }
+        $('.right-content-wrapper').append(rightContentStr);
+    };
+    $(document).ready(function(){
+        $.ajax({
+            type:'get',
+            dataType:'json',
+            url:'js/1shuju2.json',
+            success:function(e){
+               for(var i in e)
+               {
+                   a.push(i);
+                   b.push(e[i]);
+                   console.log(e[i]);
+               }
+               initLeftMenu(a);
+               initRightContent(b);
+            }
+        });
+    });
+    $(document).on('mouseover','.left-menu li' , function(){
+        var index = $('.left-menu li').index($(this));
+        $('.right-content').hide();
+        $($('.right-content')[index]).show();
+    });
+    $(document).on('mouseout','.left-menu' , function(){
+        console.log(1);
+    });
+    $(document).on('mouseover','.right-content' , function(){
+        isHover = true;
+    });
+    $(document).on('mouseout','.right-content-wrapper' , function(){
+        $('.right-content').hide();
+    })
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+body {
+  font-family: '-apple-system'; }
+  body .left-menu {
+    width: 190px;
+    background-color: #6e6568;
+    color: white;
+    float: left; }
+    body .left-menu li {
+      list-style: none;
+      height: 28px;
+      display: block;
+      width: 100%; }
+  body .right-content-wrapper {
+    padding-left: 190px; }
+    body .right-content-wrapper .right-content {
+      width: 100%;
+      display: none; }
+      body .right-content-wrapper .right-content li {
+        list-style: none; }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "销售经理",
+    "salary": "3K-5K ",
+    "education": "大专",
+    "years_working": "经验3-5年 ",
+    "job_nature": "全职",
+    "attraction": "与优秀的人一起共事 无限发展空间",
+    "tags": "企业服务高级 后端开发 分布式 J2EE SOA"
+  },
+  {
+    "name": "Java工程师",
+    "salary": "5K-25k",
+    "education": "本科及以上",
+    "years_working": "经验5-10年",
+    "job_nature": "全职",
+    "attraction": "技术挑战、工作居住证、美味果盘、运动健身",
+    "tags": "企业服务高级 后端开发 分布式 J2EE SOA"
+  },
+  {
+    "name": "客户经理 ",
+    "salary": "5k-8k",
+    "education": "本科及以上",
+    "years_working": "经验1-3年",
+    "job_nature": "全职",
+    "attraction": "爱心两餐、水果下午茶、节日礼物、绩效奖金",
+    "tags": "企业服务 顾问"
+  },
+  {
+    "name": "销售专员 ",
+    "salary": "5k-8k",
+    "education": "大专及以上",
+    "years_working": "经验1-3年",
+    "job_nature": "兼职",
+    "attraction": "节日礼物,年底双薪,绩效奖金,管吃喝",
+    "tags": "企业服务 销售 专员"
+  },
+  {
+    "name": "新媒体运营专员",
+    "salary": "4k-6k",
+    "education": "本科及以上",
+    "years_working": "经验1-3年",
+    "job_nature": "全职",
+    "attraction": "团队活动,节日福利,带薪年假,股票期权",
+    "tags": "汽车 新媒体 自媒体 微信开发 专员"
+  },
+  {
+    "name": "数据挖掘工程师",
+    "salary": "12k-24k ",
+    "education": "本科及以上 ",
+    "years_working": "经验1-3年",
+    "job_nature": "全职",
+    "attraction": "五险一金、带薪年假、股票期权、优秀的团队",
+    "tags": "汽车 数据 建模 数据挖掘"
+  },
+  {
+    "name": "数据建模 ",
+    "salary": "6K-8K ",
+    "education": " 本科及以上",
+    "years_working": "经验1-3年",
+    "job_nature": " 全职",
+    "attraction": "节日福利,发展空间,晋升空间,股票期权",
+    "tags": "数据分析 金融 建模 算法 matlab"
+ },
+  {
+    "name": "数据挖掘-风控方向",
+    "salary": "5K-8K",
+    "education": "本科及以上",
+    "years_working": "经验3-5年 ",
+    "job_nature": " 全职",
+    "attraction": "节日福利,发展空间,晋升空间,股票期权",
+    "tags": "专家 资深 建模 汽车 数据挖掘 大数据"
+  },
+  {
+    "name": "高级Java工程师 ",
+    "salary": "5K-8K ",
+    "education": "本科及以上",
+    "years_working": "经验3-5年",
+    "job_nature": " 全职",
+    "attraction": "弹性工作制，股票期权，年终奖",
+    "tags": "java"
+  },
+  {
+    "name": "测试工程师 ",
+    "salary": "8k-5K",
+    "education": "本科及以上",
+    "years_working": "经验1-3年",
+    "job_nature": " 全职",
+    "attraction": "弹性工作制，股票期权，年终奖",
+    "tags": "测试 java"
+  },
+  {
+    "name": "前端开发",
+    "salary": "5K-8K",
+    "education": "本科及以上",
+    "years_working": "经验3-5年",
+    "job_nature": " 全职",
+    "attraction": "弹性工作制，股票期权",
+    "tags": "前端 HTML5"
+  },
+  {
+    "name": "HTML5",
+    "salary": "6K-8K",
+    "education": "本科及以上",
+    "years_working": "经验3-5年",
+    "job_nature": " 全职",
+    "attraction": "弹性工作 一群文艺小骚年们等着你的加入",
+    "tags": "教育 音乐 直播 B2C web php"
+ }
+]
