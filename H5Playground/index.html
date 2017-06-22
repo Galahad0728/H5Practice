@@ -6,65 +6,96 @@
     <title>Title</title>
 </head>
 <body>
-<div class="left-menu">
+<div class="wrapper">
+    <div class="left-menu">
+    </div>
+    <div class="right-content">
+    </div>
+    <div style="clear: both"></div>
 </div>
-<div class="right-content-wrapper">
-
+<div class="items-wrapper">
 </div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
+    //一级菜单
     a = [];
+    //各个菜单内容
     b = [];
-    var isHover = false;
-    var initLeftMenu = function(e){
+    //商品item
+    c = [];
+
+    var initLeftMenu = function (e) {
         var leftMenuStr = '';
-        for(var i = 0 ; i<e.length ; i ++){
+        for (var i = 0; i < e.length; i++) {
             leftMenuStr = leftMenuStr + '<li>' + e[i] + '</li>';
         }
         $('.left-menu').append(leftMenuStr);
     };
 
-    var initRightContent = function(e){
+    var initRightContent = function (e) {
         var rightContentStr = '';
-        for(var i in e){
-            rightContentStr = rightContentStr + '<div class="right-content">';
-            for(var  j in e[i]){
+        for (var i in e) {
+            rightContentStr = rightContentStr + '<div class="item">';
+            for (var j in e[i]) {
                 rightContentStr = rightContentStr + '<li>' + e[i][j].item + '</li>';
             }
             rightContentStr = rightContentStr + '</div>';
         }
-        $('.right-content-wrapper').append(rightContentStr);
+        $('.right-content').append(rightContentStr);
     };
-    $(document).ready(function(){
+
+    //假设1页5个
+    var initItems = function(e , page){
+        $('.items-wrapper').html('');
+        var itemsStr = '';
+        var temp = [];
+        for(var i = (page-1)*5 ; i < 5*page ; i++){
+            if(typeof(e[i])!='undefined'){
+                temp.push(e[i]);
+            }
+        }
+        for(var i in temp){
+            itemsStr = itemsStr + '<div class="items"><p>' + temp[i].name + '</p><p>' + temp[i].salary + '</p><p>' + temp[i].tags + '</p></div>';
+        }
+        $('.items-wrapper').append(itemsStr);
+    };
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: 'js/1shuju2.json',
+            success: function (e) {
+                for (var i in e) {
+                    a.push(i);
+                    b.push(e[i]);
+                }
+                initLeftMenu(a);
+                initRightContent(b);
+            }
+        });
         $.ajax({
             type:'get',
+            url:'js/3position.json',
             dataType:'json',
-            url:'js/1shuju2.json',
             success:function(e){
-               for(var i in e)
-               {
-                   a.push(i);
-                   b.push(e[i]);
-                   console.log(e[i]);
-               }
-               initLeftMenu(a);
-               initRightContent(b);
+                for(var i in e){
+                    c.push(e[i]);
+                }
+                initItems(c,1);
             }
         });
     });
-    $(document).on('mouseover','.left-menu li' , function(){
+
+    $('.wrapper').hover(function(){
+        $('.right-content').show();
+    },function(){
+        $('.right-content').hide();
+    });
+
+    $(document).on('mouseover','.left-menu li',function(){
         var index = $('.left-menu li').index($(this));
-        $('.right-content').hide();
-        $($('.right-content')[index]).show();
-    });
-    $(document).on('mouseout','.left-menu' , function(){
-        console.log(1);
-    });
-    $(document).on('mouseover','.right-content' , function(){
-        isHover = true;
-    });
-    $(document).on('mouseout','.right-content-wrapper' , function(){
-        $('.right-content').hide();
+        $('.item').hide();
+        $($('.item')[index]).show();
     })
 
 
