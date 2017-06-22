@@ -1,25 +1,55 @@
-body{
+body {
   font-family: '-apple-system';
-  .left-menu{
-    width: 190px;
-    background-color: #6e6568;
-    color: white;
-    float: left;
-    li{
-      list-style: none;
-      height: 28px;
-      display: block;
-      width: 100%;
-    }
-  }
-  .right-content-wrapper{
-    padding-left: 190px;
-    .right-content{
-      width: 100%;
-      display: none;
-      li{
+  background-color: #f6f6f6;
+  .wrapper {
+    position: relative;
+    .left-menu {
+      width: 190px;
+      background-color: #6e6568;
+      color: white;
+      float: left;
+      li {
         list-style: none;
+        height: 28px;
+        display: block;
+        width: 100%;
+        line-height: 28px;
+        padding-left: 10px;
+        font-size: 14px;
       }
     }
+    .right-content {
+      background-color: #f7f7f7;
+      left: 190px;
+      width: 100%;
+      color: #666;
+      position: absolute;
+      display: none;
+      min-height: 112px;
+      box-shadow: 2px 0 5px rgba(0,0,0,.3);
+      border: 1px solid #f7f7f7;
+      .item{
+        display: none;
+        li {
+          list-style: none;
+          font-size: 14px;
+        }
+      }
+
+    }
+  }
+  .items-wrapper{
+    .items{
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      box-shadow: 2px 2px 6px 0 #ccc;
+      font-size: 14px;
+      color: #009a61;
+      border-radius: 5px;
+      p{
+        padding-left: 20px;
+      }
+    }
+
   }
 }
