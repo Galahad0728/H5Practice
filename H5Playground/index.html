@@ -13,6 +13,9 @@
     </div>
     <div style="clear: both"></div>
 </div>
+<div class="search-wrapper">
+    <input type="text" class="search" placeholder="请输入搜索条件">
+</div>
 <div class="items-wrapper">
 </div>
 <script src="js/jquery-3.2.1.min.js"></script>
@@ -23,7 +26,8 @@
     b = [];
     //商品item
     c = [];
-
+    //筛选之后的item
+    d = [];
     var initLeftMenu = function (e) {
         var leftMenuStr = '';
         for (var i = 0; i < e.length; i++) {
@@ -58,6 +62,28 @@
             itemsStr = itemsStr + '<div class="items"><p>' + temp[i].name + '</p><p>' + temp[i].salary + '</p><p>' + temp[i].tags + '</p></div>';
         }
         $('.items-wrapper').append(itemsStr);
+        initPagination(e , page);
+    };
+
+    //生成分页器
+    var initPagination = function(e , page){
+        $('.page-wrapper').remove();
+        var page_count = parseInt(e.length/5) + 1;
+        if(page_count == 1){
+            return
+        }
+        var pagination_str = '';
+        pagination_str = pagination_str + '<div class="page-wrapper"><span class="prev-page">上一页</span>';
+        for(var i = 0 ; i < page_count ; i++){
+            if( i + 1 == page ){
+                pagination_str = pagination_str + '<span class="pages active">' + (i+1) + '</span>';
+            }
+            else{
+                pagination_str = pagination_str + '<span class="pages">' + (i+1) + '</span>';
+            }
+        }
+        pagination_str = pagination_str + '<span class="next-page">下一页</span></div>';
+        $('.items-wrapper').after(pagination_str);
     };
     $(document).ready(function () {
         $.ajax({
@@ -96,9 +122,40 @@
         var index = $('.left-menu li').index($(this));
         $('.item').hide();
         $($('.item')[index]).show();
-    })
+    });
 
+    $(document).on('click','.pages',function(){
+        var index = parseInt($(this).text());
+        initItems(c , index);
+    });
 
+    $(document).on('click','.prev-page',function(){
+        var index = $('.pages').index($('.page-wrapper .active')) + 1;
+        if(index > 1){
+            initItems(c , index - 1);
+        }
+    });
+
+    $(document).on('click','.next-page',function(){
+        var index = $('.pages').index($('.page-wrapper .active')) + 1;
+        var total_pages = $('.pages').length;
+        if(index < total_pages){
+            initItems(c , index + 1);
+        }
+    });
+
+    $(document).on('keypress' , '.search',function(){
+        d = [];
+        if(event.keyCode == 13){
+            var content = $(this).val().trim();
+            for(var i in c){
+                if(c[i].name.indexOf(content) >= 0){
+                    d.push(c[i]);
+                }
+            }
+            initItems(d , 1);
+        }
+    });
 </script>
 </body>
 </html>
