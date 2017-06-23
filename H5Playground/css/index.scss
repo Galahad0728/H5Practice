@@ -21,7 +21,7 @@ body {
     .right-content {
       background-color: #f7f7f7;
       left: 190px;
-      width: 100%;
+      width: calc(100% - 190px);
       color: #666;
       position: absolute;
       display: none;
@@ -38,6 +38,18 @@ body {
 
     }
   }
+  .search-wrapper{
+    margin: 20px 0;
+    text-align: center;
+    input{
+      display: inline-block;
+      width: 50%;
+      height: 40px;
+      font-size: 16px;
+      padding: 0 20px;
+      color: #666
+    }
+  }
   .items-wrapper{
     .items{
       border: 1px solid #ccc;
@@ -51,5 +63,23 @@ body {
       }
     }
 
+  }
+  .page-wrapper{
+    text-align: center;
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    span{
+      cursor: pointer;
+    }
+    .pages{
+      color: #009a61;
+      display: inline-block;
+      margin: 0 10px;
+    }
+    .active{
+      color: #6e6568;
+      cursor: auto;
+    }
   }
 }
